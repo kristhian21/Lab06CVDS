@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:p="http://primefaces.org/ui"
+xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+xmlns:f="http://java.sun.com/jsf/core">
+
+     <h:head>
+    </h:head>
+    <h:body>
+        <h:form id="calculadora_form">
+            <h2>Ingrese los datos de entrada</h2>
+            <p:inputText name="conjuntoD" value="#{calculadoraBean.conjuntoD}"/>
+            <h2>Moda</h2>
+            <p:outputLabel style="display: none" value="#{calculadoraBean.moda}"></p:outputLabel>
+            <h2>Media</h2>
+            <p:outputLabel value="#{calculadoraBean.media}"/>
+            <h2>Desviacion estandar</h2>
+            <p:outputLabel value="#{calculadoraBean.desviacion}"></p:outputLabel>
+            <h2>Varianza</h2>
+            <p:outputLabel value="#{calculadoraBean.varianza}"></p:outputLabel>
+            <h2>Calcular valores</h2>
+            <p:commandButton value="submit" update="calculadora_form" actionListener="#{calculadoraBean.calculateXXX}"></p:commandButton>
+            <h2>Reiniciar</h2>
+            <p:commandButton value="reset" update="calculadora_form" actionListener="#{calculadoraBean.restart}"></p:commandButton>
+        </h:form>
+
+        <p:dataTable var="calculadora" value="#{calculadoraBean.valoresIngresados}">
+            <p:column>
+                <f:facet name="header">
+                    Lista de datos ingresados
+                </f:facet>
+                <h:outputText value="#{calculadora}" />
+            </p:column>
+        </p:dataTable>
+
+    </h:body>
+</html>

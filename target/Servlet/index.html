@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+            function validateForm() {
+                let x = document.forms["form"]["id"].value;
+                x = parseInt(x, 10);
+                if(!Number.isInteger(x)) {
+                    alert("No es un entero");
+                    return false;
+                }
+                else {
+                    alert("Es un entero");
+                    return true;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <form name="form" action="todo" method="GET" onsubmit="return validateForm()">
+            Id: <input type="text" name="id">
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+</html>
